@@ -9,7 +9,8 @@ def file_exist(path):
         return True
     else:
         return False
-#TODO: Build a Script that Moves files from One directory to another
+#TODO: Build a Script that Moves files from One directory to another,
+# I need to build a list of the potential file types and create a folder based on them.
 
 #TODO: Build a Script that Lists out the type of files in the directory
 #TODO: Create a folder for each file type
