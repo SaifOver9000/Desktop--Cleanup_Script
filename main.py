@@ -16,7 +16,7 @@ def file_TypeCheck(filetype):
 
 #TODO: Dont touch the folders in the current directory.
 
-#TODO: Make the Program run in the background
+#TODO: Make the Program run in the background --- Automation
 
 #TODO: Upload this to the repo
 file_TypeCheck("docx")
