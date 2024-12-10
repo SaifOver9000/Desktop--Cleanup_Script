@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import shutil
 
 
 #Maybe a hashmap would be better for this
@@ -92,8 +93,16 @@ def move_files(user_dict_path):
     p = Path(user_dict_path)
     
     for file in p.iterdir():
-        file_ext = file.suffix
-        foldertype = folder_names[file_ext]
+        if file.is_file():
+            file_ext = file.suffix
+            foldertype = folder_names[file_ext]
+            destinationpath = p / foldertype
+            if (destinationpath.exists()):
+                shutil.move(file, destinationpath)
+            else:
+                destinationpath.mkdir(parents=True, exist_ok= True)
+                shutil.move(file, destinationpath)
+            
         #We want to check if the folder exists in the directory, if so we will just moves the file there,
         #if not we would then create the folder, based on the foldertype assigned 
         
@@ -110,5 +119,5 @@ def move_files(user_dict_path):
 user_dict_path = input("Please enter the  path of the directory you want to organise: ")
 
 #print(folder_names[0])
-file_TypeCheck()
+move_files(user_dict_path)
     
